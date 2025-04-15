@@ -40,3 +40,6 @@ python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 python app.py
+
+
+This site is for personal, educational, and non-commercial use. Data sourced from unofficial NHL endpoints as documented by the community here. This project is not affiliated with or endorsed by the NHL.

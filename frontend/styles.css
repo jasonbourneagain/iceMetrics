@@ -1,0 +1,16 @@
+
+body {
+    font-family: Roboto, sans-serif;
+    text-align: center;
+    padding: 2rem;
+    background: #f5f8fc; 
+}
+
+form {
+    margin: 1rem auto;
+}
+
+input {
+    padding: 0.5rem;
+    margin-right: 0.5rem;
+}
