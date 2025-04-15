@@ -1,3 +1,5 @@
+# Handles the raw NHL API com munication
+
 import requests
 
 
