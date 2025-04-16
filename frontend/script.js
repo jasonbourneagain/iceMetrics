@@ -45,6 +45,11 @@ document.getElementById('player-form').addEventListener('submit', async (e) => {
       // 3. Fetch advanced stats
       const advancedRes = await fetch(`http://127.0.0.1:5000/player-advanced?name=${encodeURIComponent(playerName)}&season=20242025`);
       const advanced = await advancedRes.json();
+
+      // grab headshot image of corresponding player
+      const playerImageUrl = `https://assets.nhle.com/mugs/nhl/latest/${playerId}.png`;
+
+
   
       if (stats.error) {
         resultDiv.innerHTML = `<p style="color:red;">Error: ${stats.error}</p>`;
@@ -54,6 +59,7 @@ document.getElementById('player-form').addEventListener('submit', async (e) => {
       // 4. Display everything
       resultDiv.innerHTML = `
         <h2>${stats.skaterFullName}</h2>
+        <img src="${playerImageUrl}" alt="${stats.skaterFullName}" width="150" style="border-radius:  8px; margin-bottom: 1rem;">
         <p><strong>Team:</strong> ${stats.teamAbbrevs}</p>
         <p><strong>Games Played:</strong> ${stats.gamesPlayed}</p>
         <p><strong>Goals:</strong> ${stats.goals}</p>
