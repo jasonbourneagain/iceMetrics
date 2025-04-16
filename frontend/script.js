@@ -9,26 +9,36 @@ document.getElementById('player-form').addEventListener('submit', async (e) => {
   
     try {
       // 1. Search player by name
-      const searchUrl = `https://search.d3.nhle.com/api/v1/search/player?culture=en-us&limit=25&q=${encodeURIComponent(nameInput)}`;
+      const nameParts = nameInput.trim().split(" ");
+      const lastName = nameParts[nameParts.length - 1];  // "nugent-hopkins"
+      const searchUrl = `https://search.d3.nhle.com/api/v1/search/player?culture=en-us&limit=50&q=${encodeURIComponent(lastName)}`;
+
       const searchRes = await fetch(searchUrl);
       const searchData = await searchRes.json();
+
+      console.log("Search results:");
+        searchData.forEach(player => {
+            console.log(player.name.toLowerCase());
+        });
   
       if (!searchData || searchData.length === 0) {
         resultDiv.innerHTML = `<p style="color:red;">No player found for '${nameInput}'</p>`;
         return;
       }
   
-      const normalizedInput = nameInput.trim().toLowerCase();
+      const normalizedInput = nameInput.trim().toLowerCase().replace(/-/g, " ");
+
   
       let match = searchData.find(player =>
-        player.name.trim().toLowerCase() === normalizedInput
+        player.name.trim().toLowerCase().replace(/-/g, " ") === normalizedInput
       );
-  
+      
       if (!match) {
         match = searchData.find(player =>
-          player.name.trim().toLowerCase().includes(normalizedInput)
+          player.name.trim().toLowerCase().replace(/-/g, " ").includes(normalizedInput)
         );
       }
+      
   
       if (!match) {
         resultDiv.innerHTML = `<p style="color:red;">No match found for '${nameInput}'</p>`;
