@@ -4,7 +4,10 @@ from io import StringIO
 import requests
 import pandas as pd
 from bs4 import BeautifulSoup
+from functools import lru_cache
 
+# cache results to increase speed to eliminate scraping NST every time
+@lru_cache(maxsize=128)
 def get_advanced_stats(player_name, season):
     url = (
         f"https://www.naturalstattrick.com/playerteams.php?"
@@ -39,7 +42,7 @@ def get_advanced_stats(player_name, season):
 
     if not player_row.empty:
         keep_keys = [
-            "Player", "Team", "GP", "TOI",
+            "Player", "TOI",
             "CF", "CA", "CF%", "FF%", 
             "xGF", "xGA", "xGF%", 
             "SCF", "HDCF", "HDCF%", 

@@ -22,7 +22,7 @@ def player_stats():
         else:
             return jsonify({"error": "No data found for this player ID"}), 404
     except Exception as e:
-        return jsonify({"error: str(e)"}), 500
+       return jsonify({"error": str(e)}), 500
     
 # Advanced player stats
 @players_blueprint.route("/player-advanced", methods=["GET"])
