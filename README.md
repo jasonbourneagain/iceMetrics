@@ -1,17 +1,17 @@
-# 🏒 iceMetrics
+# iceMetrics
 
 **iceMetrics** is a full-stack web application that lets you search for NHL players and view their performance through both **basic stats** and **advanced analytics**. It pulls live data from public sources like the NHL API and Natural Stat Trick.
 
 ---
 
-## 🚀 Features
+## Features
 
-### 📊 Basic Stats
+### Basic Stats
 - Goals, assists, points, games played
 - Team and player metadata
 - Season filtering (current season default)
 
-### 📈 Advanced Stats (5v5)
+### Advanced Stats (5v5)
 - **Corsi (CF%, CA)** – possession indicator
 - **Fenwick (FF%, FA)** – unblocked shot attempts
 - **Expected Goals (xGF, xGA, xGF%)**
@@ -21,7 +21,7 @@
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Backend**: Python + Flask
 - **Frontend**: HTML + CSS + JavaScript
@@ -31,7 +31,7 @@
 
 ---
 
-## 🧪 Running Locally
+## Running Locally
 
 ### Backend
 ```bash
